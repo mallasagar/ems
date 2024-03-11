@@ -1,1 +1,87 @@
-<p>auth works!</p>
+<div class=" flex flex-col w-full h-screen  items-center justify-evenly bg-slate-50">
+    <div class=" text-center w-3/12"><span class="text-6xl font-bold  text-blue-600">EMS</span></div>
+    <div class="  w-8/12 sm:w-6/12 md:w-3/12 p-4   border  bg-white shadow-xl rounded-md">
+        <form  #loginuser="ngForm" (ngSubmit)="LoginUser()">
+            <div class="flex flex-col gap-4 w-full justify-center items-center p-2 rounded-lg  ">
+                <input type="email "  class="border w-full ps-2   py-2 rounded-lg ... peer" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="256" name="userloginemail" [(ngModel)]="login.loginemail"  placeholder="Email... " required>
+                <input type="password" name="userloginpassword" [(ngModel)]="login.loginpassword"  class="border w-full ps-2 py-2  rounded-lg" placeholder="password" required>
+                <input type="submit" [disabled]="!loginuser.valid"  class="bg-blue-600 w-full  py-2 text-white rounded-md" value="Login" required>
+            </div>
+            </form>
+            <div class="flex flex-col gap-4 w-full justify-center items-center p-2 rounded-lg ">
+                <div class="w-full  border" ></div>
+                <button data-modal-target="create-modal" data-modal-toggle="create-modal"class="bg-lime-500  w-8/12 py-2 rounded-lg font-bold text-white">Create new account</button>
+            </div>
+    </div>
+</div>
+
+
+  <!-- Main Create modal -->
+  <div id="create-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative p-4 w-full max-w-md max-h-full">
+          <!-- Modal content -->
+          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <!-- Modal header -->
+              <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                      Create New ID
+                  </h3>
+                  <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="create-modal">
+                      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                      </svg>
+                      <span class="sr-only">Close modal</span>
+                  </button>
+              </div>
+              <!-- Modal body -->
+              <form class="p-4 md:p-5" #registeruser="ngForm" (ngSubmit)="RegisterUser()">
+                  <div class="grid gap-4 mb-4 grid-cols-2">
+                      <div class="col-span-2 form-group">
+                          <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                          <input type="text" minlength="3" [(ngModel)]="user.username"  required name="username"  id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="User name">
+                      </div>
+                      <div class="col-span-2  sm:col-span-1 form-group">
+                          <label for="useraddress" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
+                          <input type="text" [(ngModel)]="user.useraddress" required name="useraddress" id="useraddress" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Address" >
+                      </div>
+                      <div class="col-span-2 sm:col-span-1  form-group">
+                        <label for="userrole" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
+                        <select id="usergender"required  [(ngModel)]="user.userrole" name="usergender" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option disabled>Select Role</option>
+                            <option value="employee" name="userrole">Employe</option>
+                            <option  value="manager" name="userrole">Manager</option>
+                        </select>
+                    </div>
+                      <div class="col-span-2 form-group">
+                        <label for="useremail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                        <input type="text" [(ngModel)]="user.useremail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="256"  required name="useremail" id="useremail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Email" >
+                      
+                    </div>
+                      <div class="col-span-2 sm:col-span-1 form-group">
+                          <label for="usercontact" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact</label>
+                          <input type="phone" pattern="[9]{1}[8]{1}[0-9]{4}[0-9]{4}"  [(ngModel)]="user.usercontact"  required name="usercontact" id="usercontact" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="977+ " >
+                      </div>
+                      <div class="col-span-2 sm:col-span-1 form-group">
+                          <label for="usergender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
+                          <select id="usergender"required  [(ngModel)]="user.usergender" name="usergender" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                              <option disabled>Select Gender</option>
+                              <option value="male" name="usergender">Male</option>
+                              <option  value="female" name="usergender">Female</option>
+                              <option value="other" name="usergender">Others</option>
+                          </select>
+                      </div>
+                     
+                    <div class="col-span-2 form-group">
+                        <label for="userpassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                        <input type="password" 
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" 
+                        minlength="8" max-length="16" [(ngModel)]="user.userpassword"   required name="userpassword" id="userpassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="password" >
+                    </div>
+                    <input type="submit" [disabled]="!registeruser.valid"   class=" text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"data-modal-toggle="create-modal" > 
+                </div>
+              </form>
+          </div>
+      </div>
+  </div> 
+  
+  
