@@ -7,12 +7,6 @@ import { AdmindashboardComponent } from '../Components/admin/admindashboard/admi
 const routes: Routes = [
   {path:'',component:AdminComponent  ,children:[
     {path:'', component:AdmindashboardComponent},
-    // { path: 'home', component:HomeComponent  },
-    // {path:'signup', component:SignupComponent},
-    // {path:'signin', component:SigninComponent},
-    // {path:'customer/favourite',canActivate:[customerguardGuard], component:FavComponent},
-    // {path:'customer/orders',canActivate:[customerguardGuard], component:OrderComponent},
-    // {path:'customer/orderstatus',canActivate:[customerguardGuard], component:OrderstatusComponent},
     { path: '',   redirectTo: '/', pathMatch:  'full' },
   ]
   }

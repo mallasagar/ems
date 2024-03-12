@@ -1,3 +1,84 @@
 {
-    "users":[]
+  "users": [
+    {
+      "id": "75b9",
+      "username": "admin",
+      "useraddress": "ktm",
+      "useremail": "admin@gmail.com",
+      "userpassword": "Admin@123",
+      "usercontact": "9810292888",
+      "usergender": "male",
+      "userrole": "admin"
+    },
+    {
+      "id": "48ca",
+      "username": "king kong",
+      "useraddress": "hero",
+      "useremail": "kingkon@gmail.com",
+      "userpassword": "KingKong@12",
+      "usercontact": "9810298819",
+      "usergender": "male",
+      "userrole": "employee"
+    },
+    {
+      "id": "c8ac",
+      "username": "adam",
+      "useraddress": "ktm",
+      "useremail": "adam@123gmail.com",
+      "userpassword": "Adam@123",
+      "usercontact": "9818291991",
+      "usergender": "male",
+      "userrole": "employee"
+    },
+    {
+      "id": "fbf8",
+      "username": "shyam",
+      "useraddress": "ktm",
+      "useremail": "shyam@123gmail.com",
+      "userpassword": "Shyam@123",
+      "usercontact": "9810299918",
+      "usergender": "",
+      "userrole": "employee"
+    },
+    {
+      "id": "9a0b",
+      "username": "kiran",
+      "useraddress": "ktm",
+      "useremail": "kiran@123gmail.com",
+      "userpassword": "Kiran@123",
+      "usercontact": "9819291000",
+      "usergender": "male",
+      "userrole": "employee"
+    },
+    {
+      "id": "5270",
+      "username": "jiban",
+      "useraddress": "pokhara",
+      "useremail": "jiban@123gmail.com",
+      "userpassword": "Jiban@123",
+      "usercontact": "9801098190",
+      "usergender": "female",
+      "userrole": "employee"
+    },
+    {
+      "id": "ede3",
+      "username": "sita",
+      "useraddress": "bkt",
+      "useremail": "sita@123gmail.com",
+      "userpassword": "Sita@123",
+      "usercontact": "9818290019",
+      "usergender": "male",
+      "userrole": "employee"
+    },
+    {
+      "id": "a09e",
+      "username": "gita",
+      "useraddress": "koteshwor",
+      "useremail": "gita@123gmail.com",
+      "userpassword": "Gita@123",
+      "usercontact": "9810291999",
+      "usergender": "female",
+      "userrole": "employee"
+    }
+  ]
 }

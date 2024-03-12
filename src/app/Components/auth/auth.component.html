@@ -3,8 +3,8 @@
     <div class="  w-8/12 sm:w-6/12 md:w-3/12 p-4   border  bg-white shadow-xl rounded-md">
         <form  #loginuser="ngForm" (ngSubmit)="LoginUser()">
             <div class="flex flex-col gap-4 w-full justify-center items-center p-2 rounded-lg  ">
-                <input type="email "  class="border w-full ps-2   py-2 rounded-lg ... peer" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="256" name="userloginemail" [(ngModel)]="login.loginemail"  placeholder="Email... " required>
-                <input type="password" name="userloginpassword" [(ngModel)]="login.loginpassword"  class="border w-full ps-2 py-2  rounded-lg" placeholder="password" required>
+                <input type="email "  class="border-2 border-blue-200 w-full ps-2   py-2 rounded-lg "  name="userloginemail" [(ngModel)]="login.loginemail"  placeholder="Email... " required>
+                <input type="password" class=" border-2 border-blue-200 w-full ps-2 py-2  rounded-lg"  name="userloginpassword" [(ngModel)]="login.loginpassword"  placeholder="password" required>
                 <input type="submit" [disabled]="!loginuser.valid"  class="bg-blue-600 w-full  py-2 text-white rounded-md" value="Login" required>
             </div>
             </form>
@@ -46,7 +46,7 @@
                       </div>
                       <div class="col-span-2 sm:col-span-1  form-group">
                         <label for="userrole" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
-                        <select id="usergender"required  [(ngModel)]="user.userrole" name="usergender" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                        <select id="userrole" required  [(ngModel)]="user.userrole" name="userrole" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             <option disabled>Select Role</option>
                             <option value="employee" name="userrole">Employe</option>
                             <option  value="manager" name="userrole">Manager</option>
@@ -59,11 +59,11 @@
                     </div>
                       <div class="col-span-2 sm:col-span-1 form-group">
                           <label for="usercontact" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact</label>
-                          <input type="phone" pattern="[9]{1}[8]{1}[0-9]{4}[0-9]{4}"  [(ngModel)]="user.usercontact"  required name="usercontact" id="usercontact" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="977+ " >
+                          <input type="phone" pattern="[9]{1}[8]{1}[0-9]{4}[0-9]{4}"  [(ngModel)]="user.usercontact"  required name="usercontact" id="usercontact" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="977+ 98..." >
                       </div>
                       <div class="col-span-2 sm:col-span-1 form-group">
                           <label for="usergender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
-                          <select id="usergender"required  [(ngModel)]="user.usergender" name="usergender" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                          <select id="usergender" required  [(ngModel)]="user.usergender" name="usergender" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                               <option disabled>Select Gender</option>
                               <option value="male" name="usergender">Male</option>
                               <option  value="female" name="usergender">Female</option>
