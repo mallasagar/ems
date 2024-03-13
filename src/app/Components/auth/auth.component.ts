@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { UserModel } from '../../Models/users.model';
 import { LoginModel } from '../../Models/users.model';
 import { UsersService } from '../../Services/users.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { UserStatusService } from '../../Services/user-status.service';
 @Component({
   selector: 'app-auth',
   standalone: true,
@@ -11,22 +14,27 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css'
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent implements OnInit, OnDestroy {
 
 login:LoginModel= new LoginModel('','')
 user:UserModel= new UserModel('','','','',98,'','')
 userlist:UserModel[]=[]
-constructor(private userservice: UsersService, private toast: ToastrService){
-
+subscription:Subscription;
+constructor(private userservice: UsersService,
+            private toast: ToastrService,
+            private route:Router,
+            private userstatusservice:UserStatusService){
+  this.subscription = new Subscription();
 }
 
   ngOnInit(): void {
       this.getalluser()
+      console.log(this.subscription)
   }
 
   // get all users
   getalluser(){
-    this.userservice.getallUsers()
+    this.subscription=this.userservice.getallUsers()
     .subscribe((data:any)=>{
       if(data){
         this.userlist=data
@@ -70,15 +78,20 @@ constructor(private userservice: UsersService, private toast: ToastrService){
   }
 // reset the datamodel after user register
   resetform(){
-    this.user = new UserModel('','','','',0,'','')
+    this.user = new UserModel('','','','',98,'','')
   }
 //  User Authentication
   LoginUser(){
     const loggeduser=this.userlist.find((user:any)=>user.useremail===this.login.loginemail)
     if(loggeduser){
         if(loggeduser?.userpassword===this.login.loginpassword){
-        this.toast.success("User Logged in Successfully.")
+        localStorage.setItem('useremail',loggeduser.useremail);
+        localStorage.setItem('userrole',loggeduser.userrole);
+        localStorage.setItem('isloggedin','true');
+        // setting user role in usersstatus service
+        this.userstatusservice.setstatus(loggeduser.userrole)
         this.setUserCredential(loggeduser)
+
       }else{
         this.toast.error("Invalid Password!")
       }
@@ -90,7 +103,23 @@ constructor(private userservice: UsersService, private toast: ToastrService){
 
   // setting usercredential to the webstorage
   setUserCredential(user:any){
-      console.log(user)
+      if(user.userrole==='admin'){
+        this.toast.success(""+user.username,"Welcome",{timeOut:1000})
+        this.route.navigate(['/admin']);
+      }else if(user.userrole==='manager'){
+        this.toast.success("manager"+user.username,"Welcome",{timeOut:1000})
+        this.route.navigate(['/manager']);
+      }else if(user.userrole==='employee'){
+        this.toast.success("employee"+user.username,"Welcome",{timeOut:1000})
+        this.route.navigate(['/employee']);
+      }else{
+        this.toast.error("Invalid user!!")
+        this.route.navigate(['/error']);
+      } 
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
   }
 
 }

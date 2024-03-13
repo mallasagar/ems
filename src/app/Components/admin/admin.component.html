@@ -1,2 +1,51 @@
-<p>admin works!</p>
-<router-outlet></router-outlet>
+<div class="flex justify-start w-full h-screen ">
+    <div class="  opacity-60 w-2/12 p-4 md:p-8  h-full fixed left-0 top-0  bg-green-600 shadow-lg shadow-green-700 text-white">
+        <div  class="w-full">
+            <div class="flex flex-col items-center gap-4 font-serif font-bold">
+                <span class=" my-8 font-bold text-2xl text-white ">{{title}} </span>
+                <a routerLink="/admin" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}" >
+                    <div class="p-4  flex justify-around gap-2 items-center">
+                    <!-- <fa-icon   [icon]="fadash" class="text-xl  "></fa-icon> -->
+                    <h2 class=" ">Dashboard</h2>
+                    </div>
+                    </a>
+                <a routerLink="/admin/managerlist" [routerLinkActive]="'active'"[routerLinkActiveOptions]="{exact: true}" > 
+                    <div class="p-2  flex justify-around gap-2 ">
+                        <!-- <fa-icon [icon]="fauserlist" class="text-xl"></fa-icon> -->
+                    <h2 class="">Manager List</h2>
+                    </div>   
+                </a>
+                <a routerLink="/admin/employeelist" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"> 
+                    <div class="p-2  flex justify-around gap-1 ">
+                        <!-- <fa-icon [icon]="fauserlist" class="text-xl"></fa-icon> -->
+                    <h2 class="">Employee List</h2>
+                    </div> 
+                </a>
+                <a routerLink="/admin/additional" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"> 
+                    <div class="p-2  flex justify-around gap-1 ">
+                        <!-- <fa-icon [icon]="facart"></fa-icon> -->
+                    <h2 class="">additional</h2>
+                    </div>
+                </a>
+                    <div class="p-2  flex  justify-around items-center gap-2 " (click)="logout()" >
+                        <h2 class="">Logout</h2>
+                        <i class=" text-lg  fa-solid fa-right-from-bracket"></i>
+                    </div>
+            </div>  
+        </div>
+        
+    </div>
+    <div class="flex flex-col gap-4  w-10/12 h-full fixed top-0 right-0  ">
+        <div class="  py-6 bg-green-50 shadow-md items-center ">
+            <div class=" flex  items-center   p-2 text-black w-auto h-18  " >
+                <span class="text-red-600 font-serif text-md font-bold ms-16"> Admin Dashboard Header
+                </span>
+            </div>
+            
+        </div>
+        <div class="h-full overflow-auto p-8 ">
+            <!-- admin content to load  -->
+            <router-outlet ></router-outlet>
+        </div>
+    </div>
+</div>

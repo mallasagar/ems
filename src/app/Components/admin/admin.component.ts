@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { UserStatusService } from '../../Services/user-status.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin',
@@ -9,5 +11,12 @@ import { RouterModule } from '@angular/router';
   styleUrl: './admin.component.css'
 })
 export class AdminComponent {
+
+  title:string="EMS"
+constructor(private userstatusservice: UserStatusService,private route:Router, private toast: ToastrService){}
+
+logout(){
+  this.userstatusservice.clearcredential()
+}
 
 }

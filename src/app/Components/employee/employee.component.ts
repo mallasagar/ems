@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { NavbarComponent } from '../sharedcomponent/navbar/navbar.component';
 
 @Component({
   selector: 'app-employee',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule,NavbarComponent],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.css'
 })

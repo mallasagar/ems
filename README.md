@@ -31,4 +31,19 @@ Technology Used:
 -Tailwind CSS For UI design
 -Json-Server for Mock API
 -Third party library Flowbite for Responsive form
+-fontawesome icon
 
+
+Run Project:
+- in angular CLI: ng serve
+- for json server: json-server db.json
+
+Admin Role:
+useremail:admin@gmail.com
+pw: Admin@123
+
+ManagerRole:
+Create your own
+
+EmployeeRole:
+Create your own

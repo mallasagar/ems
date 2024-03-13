@@ -1,0 +1,58 @@
+<div class="w-full h-12 flex justify-end border items-center gap-4 px-8 bg-blue-600 text-white">
+    <div class="me-auto ">Brand Name</div>
+    <div class="flex gap-4" *ngIf="isemployee">
+            <a routerLink="/employee" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}" >
+                <div class="p-4  flex justify-around gap-2 items-center">
+                <!-- <fa-icon   [icon]="fadash" class="text-xl  "></fa-icon> -->
+                <h2 class=" ">Profile</h2>
+                </div>
+                </a>
+            <a routerLink="/employee/news" [routerLinkActive]="'active'"  >
+                <div class="p-4  flex justify-around gap-2 items-center">
+                <!-- <fa-icon   [icon]="fadash" class="text-xl  "></fa-icon> -->
+                <h2 class=" ">News</h2>
+                </div>
+            </a>
+            <a routerLink="/employee/tasks" [routerLinkActive]="'active'"  >
+                <div class="p-4  flex justify-around gap-2 items-center">
+                <h2 class=" ">Task</h2>
+                </div>
+            </a>
+            <a routerLink="/employee/progress" [routerLinkActive]="'active'"  >
+                <div class="p-4  flex justify-around gap-2 items-center">
+                <h2 class=" ">Progress</h2>
+                </div>
+            </a>
+            <a routerLink="/employee/message" [routerLinkActive]="'active'"  >
+                <div class="p-4  flex justify-around gap-2 items-center">
+                    <h2 class=" ">Message</h2>
+                </div>
+            </a>
+    </div>
+    
+    
+    
+    <div class="flex gap-4" *ngIf="ismanager">
+            <a routerLink="/manager" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}" >
+                <div class="p-4  flex justify-around gap-2 items-center">
+                <h2 class=" ">Profile</h2>
+                </div>
+            </a>
+            <a routerLink="/manager/createnotice" [routerLinkActive]="'active'"  >
+                <div class="p-4  flex justify-around gap-2 items-center">
+                    <h2 class=" ">Create Notice</h2>
+                </div>
+            </a>
+            <a routerLink="/manager/createtask" [routerLinkActive]="'active'"  >
+                <div class="p-4  flex justify-around gap-2 items-center">
+                <h2 class=" ">Create Task</h2>
+                </div>
+            </a>
+            <a routerLink="/manager/meeting" [routerLinkActive]="'active'"  >
+                <div class="p-4  flex justify-around gap-2 items-center">
+                <h2 class=" ">Schedule meeting</h2>
+                </div>
+            </a>
+        </div>
+        <i class=" text-lg  fa-solid fa-right-from-bracket" (click)="logout()"></i>
+</div>
